@@ -27,6 +27,24 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
     }
   };
 
+  const DarkModeToggle = () => (
+    <button 
+      onClick={toggleDarkMode}
+      className="w-12 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 relative transition-colors duration-300 flex items-center px-1 flex-shrink-0"
+      aria-label="Toggle Dark Mode"
+    >
+      <div className={`w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center ${
+        isDarkMode ? 'translate-x-6 bg-zinc-950' : 'translate-x-0 bg-white'
+      }`}>
+        {isDarkMode ? (
+          <svg className="w-3 h-3 text-[#00E5D1]" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        ) : (
+          <svg className="w-3 h-3 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+        )}
+      </div>
+    </button>
+  );
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
       isScrolled || isMobileMenuOpen 
@@ -51,21 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
           <button onClick={() => scrollToSection('stories')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Stories</button>
           <button onClick={() => scrollToSection('contact')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Connect</button>
           
-          <button 
-            onClick={toggleDarkMode}
-            className="w-12 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 relative transition-colors duration-300 flex items-center px-1"
-            aria-label="Toggle Dark Mode"
-          >
-            <div className={`w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center ${
-              isDarkMode ? 'translate-x-6 bg-zinc-950' : 'translate-x-0 bg-white'
-            }`}>
-              {isDarkMode ? (
-                <svg className="w-3 h-3 text-[#00E5D1]" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-              ) : (
-                <svg className="w-3 h-3 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
-              )}
-            </div>
-          </button>
+          <DarkModeToggle />
 
           <button 
             onClick={() => scrollToSection('contact')}
@@ -76,16 +80,12 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
         </div>
 
         {/* Mobile Header Controls */}
-        <div className="flex lg:hidden items-center space-x-3">
-           <button 
-            onClick={toggleDarkMode}
-            className="p-2.5 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl shadow-sm text-zinc-600 dark:text-zinc-400"
-          >
-            {isDarkMode ? '🌙' : '☀️'}
-          </button>
+        <div className="flex lg:hidden items-center space-x-4">
+          <DarkModeToggle />
+          
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-[#4B87C1] p-2.5 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl shadow-sm"
+            className="text-[#4B87C1] dark:text-[#67a7e6] p-2.5 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl shadow-sm"
           >
             {isMobileMenuOpen ? (
                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
