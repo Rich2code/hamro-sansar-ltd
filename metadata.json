@@ -1,0 +1,7 @@
+{
+  "name": "Hamro Sansar Ltd - Our World",
+  "description": "An innovative portal for a bespoke, semi-independent home business offering curated global treasures and local craftsmanship.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
