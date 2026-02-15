@@ -79,10 +79,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
           </button>
         </div>
 
-        {/* Mobile Header Controls */}
+        {/* Mobile Header Controls - Toggle removed from here for mobile, moved to menu content */}
         <div className="flex lg:hidden items-center space-x-4">
-          <DarkModeToggle />
-          
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-[#4B87C1] dark:text-[#67a7e6] p-2.5 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl shadow-sm"
@@ -107,6 +105,12 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
           <button onClick={() => scrollToSection('services')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Support</button>
           <button onClick={() => scrollToSection('stories')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Stories</button>
           <button onClick={() => scrollToSection('contact')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Connect</button>
+          
+          <div className="flex flex-col items-center space-y-2">
+            <span className="text-[8px] font-black uppercase tracking-widest text-zinc-400">Theme</span>
+            <DarkModeToggle />
+          </div>
+
           <button 
             onClick={() => scrollToSection('contact')}
             className="w-full max-w-xs py-5 bg-[#00E5D1] text-[#4B5320] rounded-2xl transition-all font-black shadow-lg shadow-cyan-100 dark:shadow-none uppercase tracking-[0.2em] text-xs"
