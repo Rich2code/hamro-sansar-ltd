@@ -6,211 +6,165 @@ import Logo from './components/Logo';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen relative flex flex-col">
+    <div className="min-h-screen relative flex flex-col bg-[#fafafa] text-zinc-800">
       <Navbar />
 
-      {/* Hero Section - Brighter Overlays */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-zinc-950">
+      {/* Hero Section - Brighter, Warm, and Reassuring */}
+      <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden bg-white">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600" 
-            alt="Artisanal Decor" 
-            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+            src="https://images.pexels.com/photos/7163352/pexels-photo-7163352.jpeg?auto=compress&cs=tinysrgb&w=1600" 
+            alt="Warm Modern Home" 
+            className="w-full h-full object-cover opacity-40 mix-blend-multiply"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/60 to-zinc-950"></div>
-          {/* Enhanced Glows */}
-          <div className="absolute top-1/4 -right-1/4 w-[60%] h-[60%] bg-cyan-500/10 rounded-full blur-[180px] animate-pulse"></div>
-          <div className="absolute bottom-1/4 -left-1/4 w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[150px]"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+          
+          {/* Brighter Dynamic Lighting */}
+          <div className="absolute top-1/4 right-0 w-[50%] h-[50%] bg-cyan-200/40 rounded-full blur-[180px] animate-pulse"></div>
+          <div className="absolute -bottom-1/4 -left-1/4 w-[50%] h-[50%] bg-[#4B87C1]/20 rounded-full blur-[180px]"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center space-x-3 px-4 py-2 rounded-2xl bg-cyan-500/10 border border-cyan-400/30 mb-10 backdrop-blur-xl glow-cyan">
-              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-ping"></span>
-              <span className="text-[11px] font-extrabold text-cyan-300 uppercase tracking-[0.25em]">Global Heritage • UK Bespoke Luxury</span>
+            <div className="inline-flex items-center space-x-3 px-5 py-2.5 rounded-2xl bg-cyan-50 border border-cyan-100 mb-10 shadow-sm">
+              <span className="w-2.5 h-2.5 bg-cyan-500 rounded-full animate-ping"></span>
+              <span className="text-[12px] font-black text-cyan-700 uppercase tracking-[0.2em]">Helping Hands For Better Future...</span>
             </div>
-            <h1 className="text-7xl md:text-[9.5rem] font-serif font-bold leading-[0.85] mb-10 tracking-tighter">
-              Hamro <br />
-              <span className="gradient-text italic">Sansar.</span>
+            <h1 className="text-6xl md:text-8xl font-serif font-bold leading-[1.1] mb-8 tracking-tighter text-zinc-900">
+              The Path to <br />
+              <span className="text-[#4B87C1] italic">Independence.</span>
             </h1>
-            <p className="text-xl md:text-3xl text-zinc-300 mb-14 max-w-2xl font-light leading-relaxed">
-              Illuminating homes with the world's most evocative artisan treasures. <span className="text-white font-medium">Authenticity reimagined.</span>
+            <p className="text-xl md:text-2xl text-zinc-600 mb-12 max-w-2xl font-light leading-relaxed">
+              At <span className="text-zinc-900 font-semibold italic">Hamro Sansar</span>—meaning <span className="text-[#4B87C1] font-bold">"Our World"</span>—we provide a nurturing environment for young people transitioning from care to self-sufficiency.
             </p>
-            <div className="flex flex-col sm:flex-row gap-8">
-              <button className="px-12 py-6 bg-cyan-400 text-zinc-950 font-black rounded-2xl hover:bg-white hover:shadow-[0_0_60px_rgba(0,255,242,0.5)] transition-all duration-500 text-sm uppercase tracking-[0.2em] transform hover:-translate-y-1">
-                Explore The World
+            <div className="flex flex-col sm:flex-row gap-6">
+              <button className="px-10 py-5 bg-[#4B87C1] text-white font-black rounded-2xl hover:bg-cyan-500 hover:shadow-[0_10px_40px_rgba(0,229,209,0.3)] transition-all duration-500 text-xs uppercase tracking-[0.2em] transform hover:-translate-y-1">
+                Our Services
               </button>
-              <button className="px-12 py-6 border border-zinc-700 bg-zinc-900/40 text-white font-bold rounded-2xl hover:bg-zinc-800 hover:border-cyan-400/50 transition-all text-sm uppercase tracking-[0.2em] backdrop-blur-xl">
-                Our Heritage
+              <button className="px-10 py-5 border border-zinc-200 bg-white text-zinc-700 font-bold rounded-2xl hover:bg-zinc-50 transition-all text-xs uppercase tracking-[0.2em] shadow-sm">
+                About Supported Living
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Certifications Section - New */}
-      <section className="py-20 bg-zinc-900/30 border-y border-zinc-800/50 relative overflow-hidden">
+      {/* What is Semi-Independent Living? */}
+      <section id="about" className="py-32 bg-zinc-50 border-y border-zinc-200/50">
         <div className="container mx-auto px-6">
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-            <CertificationBadge name="Fair Trade Certified" icon="🤝" />
-            <CertificationBadge name="GOTS Organic" icon="🌿" />
-            <CertificationBadge name="Artisan Heritage Guild" icon="🏛️" />
-            <CertificationBadge name="Eco-Luxe Member" icon="💎" />
-          </div>
-        </div>
-      </section>
-
-      {/* Philosophy Section */}
-      <section id="about" className="py-40 bg-zinc-950 relative overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative group">
-              <div className="absolute -inset-10 bg-cyan-500/10 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
               <img 
-                src="https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="Craftsmanship" 
-                className="relative rounded-[3rem] object-cover w-full h-[650px] border border-zinc-800 shadow-2xl transition-all duration-1000 group-hover:border-cyan-400/30"
+                src="https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                alt="Support and Guidance" 
+                className="relative rounded-[3rem] object-cover w-full h-[600px] shadow-2xl transition-all duration-700 group-hover:scale-[1.02]"
               />
-              <div className="absolute -bottom-10 -right-10 w-52 h-52 bg-zinc-900 border border-zinc-800 rounded-[2.5rem] p-8 hidden md:flex flex-col justify-center items-center text-center shadow-2xl glow-cyan">
-                 <Logo className="w-20 h-20 mb-3" />
-                 <span className="text-[11px] font-black text-cyan-400 uppercase tracking-widest">Est. 2024</span>
+              <div className="absolute -bottom-10 -right-10 bg-[#00E5D1] p-10 rounded-[3rem] shadow-xl text-white hidden md:block">
+                 <p className="text-sm font-black uppercase tracking-widest mb-2 italic">Hamro Sansar</p>
+                 <h4 className="text-3xl font-serif font-bold leading-none">"Our World"</h4>
               </div>
             </div>
-            <div className="lg:pl-10">
-              <span className="text-cyan-400 font-black uppercase tracking-[0.4em] text-[10px] mb-8 block px-3 py-1 bg-cyan-500/5 border border-cyan-500/10 rounded-full w-fit">The Global Ethos</span>
-              <h2 className="text-6xl md:text-7xl font-bold mb-10 font-serif leading-[1.1]">Where Tradition Meets <span className="italic text-zinc-400">Light.</span></h2>
-              <p className="text-zinc-300 text-xl mb-8 leading-relaxed font-light">
-                Hamro Sansar is more than a boutique; it's a commitment to the <span className="text-cyan-400 font-medium">preservation of the artisan soul.</span> We source from independent families across 14 nations.
+            <div>
+              <span className="text-cyan-600 font-black uppercase tracking-[0.3em] text-[11px] mb-6 block">Defining the Future</span>
+              <h2 className="text-5xl md:text-6xl font-bold mb-8 font-serif leading-tight text-zinc-900">A Stepping Stone to <br/><span className="italic text-[#4B87C1]">Your Own World.</span></h2>
+              <p className="text-zinc-600 text-xl mb-10 leading-relaxed font-light">
+                Semi-independent home (also called <span className="text-zinc-900 font-medium italic">supported accommodation</span>) is the vital bridge between living in full-time care, like foster care, and living completely on your own. 
+              </p>
+              <p className="text-zinc-500 text-lg mb-10 leading-relaxed">
+                Designed for young people aged 16 to 18, it offers a safe space where you have more responsibility but still have <span className="text-zinc-900 font-semibold italic">Helping Hands</span> nearby whenever you need them.
               </p>
               <div className="space-y-6 mb-12">
-                <CheckItem text="Direct-from-source artisan partnerships" />
-                <CheckItem text="Eco-conscious, plastic-free logistics" />
-                <CheckItem text="100% Transparency in sourcing paths" />
-              </div>
-              <div className="grid grid-cols-2 gap-12 border-t border-zinc-800 pt-12">
-                <div>
-                  <h3 className="text-cyan-400 text-5xl font-black mb-2 font-serif tracking-tighter">75+</h3>
-                  <p className="text-zinc-500 text-[10px] uppercase tracking-[0.3em] font-bold">Heritage Families</p>
-                </div>
-                <div>
-                  <h3 className="text-cyan-400 text-5xl font-black mb-2 font-serif tracking-tighter">14</h3>
-                  <p className="text-zinc-500 text-[10px] uppercase tracking-[0.3em] font-bold">Partner Nations</p>
-                </div>
+                <CheckItem text="Safe domestic housing in Little Brampton" />
+                <CheckItem text="Budgeting & financial literacy skills" />
+                <CheckItem text="Emotional guidance and mentorship" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Success Stories Section - New */}
-      <section id="stories" className="py-40 bg-zinc-900/20 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(0,255,242,0.05),transparent)] pointer-events-none"></div>
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <span className="text-cyan-400 font-black uppercase tracking-[0.3em] text-[10px] mb-6 block">Our Impact</span>
-            <h2 className="text-6xl font-serif font-bold mb-8">Stories from the Soul</h2>
-            <p className="text-zinc-400 text-lg font-light">The real measure of Hamro Sansar isn't in sales, but in the changed lives of our artisans and the sanctuaries we help build.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            <StoryCard 
-              name="The Kathmandu Collective"
-              location="Nepal"
-              story="By bridging the gap to London, we helped a group of 15 traditional weavers transition to 100% organic dyes while tripling their yearly collective revenue."
-              image="https://images.pexels.com/photos/2166591/pexels-photo-2166591.jpeg?auto=compress&cs=tinysrgb&w=800"
-            />
-            <StoryCard 
-              name="The Somerset Restoration"
-              location="UK"
-              story="A historic estate brought back to life using entirely bespoke Hamro Sansar textiles and reclaimed marble vessels, preserving history through modern curation."
-              image="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=800"
-            />
-          </div>
+      {/* Core Services Section */}
+      <section id="services" className="py-32 bg-white">
+        <div className="container mx-auto px-6 text-center mb-24">
+          <span className="text-cyan-600 font-black uppercase tracking-[0.3em] text-[11px] mb-6 block">Support Programs</span>
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-zinc-900">How We Support You</h2>
+        </div>
+        <div className="container mx-auto px-6 grid md:grid-cols-3 gap-12">
+          <ServiceCard 
+            title="Safe Housing" 
+            description="Domestic, high-quality living environments that feel like home, not a facility."
+            image="https://images.pexels.com/photos/584399/pexels-photo-584399.jpeg?auto=compress&cs=tinysrgb&w=800"
+          />
+          <ServiceCard 
+            title="Life Skills Training" 
+            description="Practical workshops on cooking, laundry, bills, and job applications."
+            image="https://images.pexels.com/photos/5990263/pexels-photo-5990263.jpeg?auto=compress&cs=tinysrgb&w=800"
+          />
+          <ServiceCard 
+            title="Key-Work Support" 
+            description="Regular one-on-one sessions with professional mentors to set and reach life goals."
+            image="https://images.pexels.com/photos/7163351/pexels-photo-7163351.jpeg?auto=compress&cs=tinysrgb&w=800"
+          />
         </div>
       </section>
 
-      {/* Collections Section */}
-      <section id="services" className="py-40 bg-zinc-950">
+      {/* Success Stories Section */}
+      <section id="stories" className="py-32 bg-[#4B87C1]/5 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
             <div className="max-w-2xl">
-              <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-6 block">The Collections</span>
-              <h2 className="text-6xl font-serif font-bold leading-tight">Curating the world,<br/>one home at a time.</h2>
+              <span className="text-cyan-600 font-black uppercase tracking-[0.3em] text-[11px] mb-6 block">Real Journeys</span>
+              <h2 className="text-5xl font-serif font-bold text-zinc-900">Stories of Independence</h2>
             </div>
-            <button className="text-white font-bold text-sm uppercase tracking-[0.2em] px-8 py-4 border border-zinc-800 rounded-full hover:bg-zinc-900 transition-all flex items-center space-x-3 group">
-              <span>View All Worlds</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </button>
+            <p className="text-zinc-500 max-w-sm text-lg italic">
+              "Providing the helping hands needed for a brighter future."
+            </p>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-12">
-            <CategoryCard 
-              title="Sacred Textiles" 
-              description="Masterpieces of hand-woven organic cotton, dyed with roots and minerals."
-              image="https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <StoryCard 
+              name="Leo's Transition"
+              result="Independent Flat"
+              story="Leo moved in at 16 with limited skills. Through our mentoring, he secured an apprenticeship and successfully moved into his own flat this month."
+              image="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&w=800"
             />
-            <CategoryCard 
-              title="Artisan Decor" 
-              description="Brutalist stone vessels and hand-hammered brass artifacts for the modern sanctuary."
-              image="https://images.pexels.com/photos/4203100/pexels-photo-4203100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            />
-            <CategoryCard 
-              title="Global Pantry" 
-              description="Direct-trade heritage spices and single-origin tea leaves, harvested by moonlight."
-              image="https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            <StoryCard 
+              name="Maya's New World"
+              result="University Entry"
+              story="Maya used our safe home to focus on her A-levels. Our key workers helped her manage her mental health, and she's now heading to university."
+              image="https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=800"
             />
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-40 relative bg-zinc-900/10">
+      {/* Connect Section */}
+      <section id="contact" className="py-32 bg-white">
         <div className="container mx-auto px-6">
-          <div className="glass-card p-1 bg-gradient-to-br from-zinc-800 to-zinc-950 rounded-[4rem] glow-cyan">
-            <div className="bg-zinc-950 p-12 md:p-24 rounded-[3.9rem] border border-zinc-800/50 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] -mr-48 -mt-48"></div>
-              <div className="grid lg:grid-cols-2 gap-24 relative z-10">
-                <div>
-                  <h2 className="text-7xl font-serif font-bold mb-10 leading-tight">Start Your <br/>Project.</h2>
-                  <p className="text-zinc-400 mb-16 text-xl font-light leading-relaxed">
-                    Based in London, consulting globally. We are ready to help you source the extraordinary.
-                  </p>
-                  
-                  <div className="space-y-12">
-                    <ContactItem 
-                      icon={<svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>}
-                      label="The London Studio"
-                      value="123 Heritage Lane, Little Brampton, London"
-                    />
-                    <ContactItem 
-                      icon={<svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>}
-                      label="Correspondence"
-                      value="hello@hamrosansar.co.uk"
-                    />
+          <div className="bg-white rounded-[4rem] border border-zinc-100 shadow-2xl p-12 md:p-24 overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-100/50 rounded-full blur-[100px] -mr-48 -mt-48"></div>
+            <div className="grid lg:grid-cols-2 gap-24 relative z-10">
+              <div>
+                <h2 className="text-6xl font-serif font-bold mb-10 text-zinc-900 leading-tight">Join Our World.</h2>
+                <p className="text-zinc-500 mb-16 text-xl font-light">
+                  Whether you are a local authority, a young person, or a guardian—Hamro Sansar is here to provide the support needed.
+                </p>
+                <div className="space-y-12">
+                  <ContactItem icon="📍" label="The Home Office" value="123 Heritage Lane, London, UK" />
+                  <ContactItem icon="📞" label="Direct Line" value="+44 20 7946 0000" />
+                </div>
+              </div>
+              <div className="bg-zinc-50 p-10 md:p-14 rounded-[3rem] border border-zinc-200/50">
+                <form className="space-y-8" onSubmit={e => e.preventDefault()}>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Full Name" className="w-full bg-white border border-zinc-200 rounded-2xl px-6 py-4 focus:ring-2 ring-cyan-500 outline-none" />
+                    <input type="email" placeholder="Email Address" className="w-full bg-white border border-zinc-200 rounded-2xl px-6 py-4 focus:ring-2 ring-cyan-500 outline-none" />
                   </div>
-                </div>
-                
-                <div className="bg-zinc-900/40 p-10 md:p-14 rounded-[3rem] border border-zinc-800/50 backdrop-blur-xl">
-                  <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] ml-1">Identity</label>
-                        <input type="text" className="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-6 py-5 focus:outline-none focus:border-cyan-400 transition-all text-sm font-light" placeholder="Aria Vance" />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] ml-1">Email</label>
-                        <input type="email" className="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-6 py-5 focus:outline-none focus:border-cyan-400 transition-all text-sm font-light" placeholder="aria@studio.com" />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] ml-1">Message</label>
-                      <textarea rows={5} className="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-6 py-5 focus:outline-none focus:border-cyan-400 transition-all text-sm font-light resize-none" placeholder="How can we help you build your world?"></textarea>
-                    </div>
-                    <button className="w-full py-6 bg-cyan-400 text-zinc-950 font-black rounded-2xl hover:bg-white hover:shadow-2xl transition-all uppercase tracking-[0.3em] text-xs">
-                      Send Inquiry
-                    </button>
-                  </form>
-                </div>
+                  <textarea rows={4} placeholder="How can we help?" className="w-full bg-white border border-zinc-200 rounded-2xl px-6 py-4 focus:ring-2 ring-cyan-500 outline-none resize-none"></textarea>
+                  <button className="w-full py-5 bg-[#4B87C1] text-white font-black rounded-2xl hover:bg-cyan-600 transition-all uppercase tracking-[0.2em] text-xs">
+                    Send Inquiry
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -218,88 +172,67 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-24 bg-zinc-950 border-t border-zinc-900">
-        <div className="container mx-auto px-6 text-center">
-           <div className="flex justify-center mb-10 scale-125">
-              <Logo className="w-16 h-16" />
+      <footer className="py-24 bg-white border-t border-zinc-100">
+        <div className="container mx-auto px-6 flex flex-col items-center">
+           <div className="mb-12">
+              <Logo size="lg" />
            </div>
-           <h2 className="text-4xl font-black uppercase tracking-[0.6em] mb-12 text-white">Hamro Sansar</h2>
-           <div className="flex flex-wrap justify-center gap-12 mb-20 text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em]">
-              <a href="#about" className="hover:text-cyan-400 transition-colors">The Philosophy</a>
-              <a href="#stories" className="hover:text-cyan-400 transition-colors">Success Stories</a>
-              <a href="#services" className="hover:text-cyan-400 transition-colors">Artisans</a>
-              <a href="#contact" className="hover:text-cyan-400 transition-colors">Inquiries</a>
+           <div className="flex flex-wrap justify-center gap-12 mb-16 text-[10px] font-black text-zinc-400 uppercase tracking-[0.3em]">
+              <a href="#about" className="hover:text-cyan-500 transition-colors">Independence</a>
+              <a href="#services" className="hover:text-cyan-500 transition-colors">Our Services</a>
+              <a href="#stories" className="hover:text-cyan-500 transition-colors">Success Stories</a>
+              <a href="#contact" className="hover:text-cyan-500 transition-colors">Referrals</a>
            </div>
-           <div className="text-zinc-700 text-[10px] uppercase tracking-[0.4em] font-medium border-t border-zinc-900/50 pt-12">
-             &copy; {new Date().getFullYear()} Hamro Sansar Ltd. Bespoke Curations from London.
+           <div className="text-zinc-300 text-[10px] uppercase tracking-[0.5em] font-medium text-center">
+             &copy; {new Date().getFullYear()} Hamro Sansar Ltd. Supported Accommodation for Young People.
            </div>
         </div>
       </footer>
 
-      {/* AI Bot */}
       <SansarAI />
     </div>
   );
 };
 
-// --- Components ---
+// --- Sub-Components ---
 
-const CertificationBadge: React.FC<{ name: string; icon: string }> = ({ name, icon }) => (
-  <div className="flex items-center space-x-3 group cursor-default">
-    <span className="text-2xl group-hover:scale-125 transition-transform duration-500">{icon}</span>
-    <span className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] group-hover:text-cyan-400 transition-colors">{name}</span>
+const ServiceCard: React.FC<{ title: string; description: string; image: string }> = ({ title, description, image }) => (
+  <div className="group bg-white rounded-[3rem] border border-zinc-100 p-6 hover:shadow-2xl transition-all duration-700">
+    <div className="h-64 overflow-hidden rounded-[2.5rem] mb-10">
+      <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+    </div>
+    <h3 className="text-3xl font-serif font-bold text-zinc-900 mb-6">{title}</h3>
+    <p className="text-zinc-500 leading-relaxed mb-8">{description}</p>
+    <div className="text-cyan-600 font-black uppercase tracking-widest text-[10px] group-hover:translate-x-2 transition-transform">Learn More &rarr;</div>
+  </div>
+);
+
+const StoryCard: React.FC<{ name: string; result: string; story: string; image: string }> = ({ name, result, story, image }) => (
+  <div className="bg-white rounded-[3.5rem] p-10 border border-zinc-100 flex flex-col md:flex-row gap-10 items-center shadow-sm">
+    <img src={image} alt={name} className="w-32 h-32 rounded-full object-cover shadow-lg border-4 border-cyan-50" />
+    <div>
+      <span className="text-cyan-600 text-[10px] font-black uppercase tracking-widest mb-2 block">{result}</span>
+      <h3 className="text-3xl font-serif font-bold text-zinc-900 mb-4">{name}</h3>
+      <p className="text-zinc-500 font-light leading-relaxed">{story}</p>
+    </div>
   </div>
 );
 
 const CheckItem: React.FC<{ text: string }> = ({ text }) => (
   <div className="flex items-center space-x-4">
-    <div className="w-5 h-5 rounded-full bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20">
-      <svg className="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+    <div className="w-6 h-6 rounded-full bg-cyan-50 flex items-center justify-center border border-cyan-100">
+      <span className="text-cyan-600 text-[10px]">✔</span>
     </div>
-    <span className="text-zinc-400 text-sm font-light">{text}</span>
+    <span className="text-zinc-600 font-medium">{text}</span>
   </div>
 );
 
-const StoryCard: React.FC<{ name: string; location: string; story: string; image: string }> = ({ name, location, story, image }) => (
-  <div className="group relative overflow-hidden rounded-[3rem] bg-zinc-900/40 border border-zinc-800/50 p-8 flex flex-col md:flex-row gap-8 items-center hover:border-cyan-500/30 transition-all duration-700">
-    <div className="w-full md:w-48 h-48 flex-shrink-0 overflow-hidden rounded-[2rem]">
-      <img src={image} alt={name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-    </div>
-    <div className="flex-1">
-      <span className="text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">{location}</span>
-      <h3 className="text-2xl font-serif font-bold text-white mb-4">{name}</h3>
-      <p className="text-zinc-400 text-sm leading-relaxed font-light">{story}</p>
-    </div>
-  </div>
-);
-
-const CategoryCard: React.FC<{ title: string; description: string; image: string }> = ({ title, description, image }) => (
-  <div className="group overflow-hidden rounded-[3rem] bg-zinc-900/30 border border-zinc-800/50 hover:border-cyan-400 transition-all duration-700 cursor-pointer shadow-2xl">
-    <div className="h-[450px] overflow-hidden relative">
-      <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
-      <div className="absolute bottom-10 left-10">
-         <h3 className="text-4xl font-bold font-serif text-white tracking-tight">{title}</h3>
-      </div>
-    </div>
-    <div className="p-10">
-      <p className="text-zinc-400 leading-relaxed mb-10 text-lg font-light">{description}</p>
-      <div className="flex items-center space-x-4 text-cyan-400 text-[11px] font-black uppercase tracking-[0.25em] group-hover:translate-x-3 transition-all duration-500">
-        <span>Explore Collection</span>
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-      </div>
-    </div>
-  </div>
-);
-
-const ContactItem: React.FC<{ icon: React.ReactNode; label: string; value: string }> = ({ icon, label, value }) => (
-  <div className="flex items-start space-x-8 group">
-    <div className="w-16 h-16 bg-cyan-500/5 rounded-[1.5rem] flex items-center justify-center text-cyan-400 border border-cyan-500/10 shadow-lg group-hover:bg-cyan-400 group-hover:text-zinc-950 transition-all duration-500">
-      {icon}
-    </div>
+const ContactItem: React.FC<{ icon: string; label: string; value: string }> = ({ icon, label, value }) => (
+  <div className="flex items-center space-x-6">
+    <div className="text-4xl">{icon}</div>
     <div>
-      <p className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] mb-2">{label}</p>
-      <p className="text-white text-lg font-light">{value}</p>
+      <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-1">{label}</p>
+      <p className="text-zinc-800 text-xl font-medium">{value}</p>
     </div>
   </div>
 );
