@@ -1,10 +1,11 @@
 
 import React from 'react';
 
-const Logo: React.FC<{ className?: string; hideText?: boolean; size?: 'sm' | 'md' | 'lg' }> = ({ 
+const Logo: React.FC<{ className?: string; hideText?: boolean; size?: 'sm' | 'md' | 'lg'; isDarkMode?: boolean }> = ({ 
   className = "", 
   hideText = false,
-  size = 'md'
+  size = 'md',
+  isDarkMode = false
 }) => {
   const iconSize = size === 'sm' ? 'w-12 h-12' : size === 'lg' ? 'w-24 h-24' : 'w-16 h-16';
   const titleSize = size === 'sm' ? 'text-xl' : size === 'lg' ? 'text-5xl' : 'text-3xl';
@@ -45,10 +46,10 @@ const Logo: React.FC<{ className?: string; hideText?: boolean; size?: 'sm' | 'md
 
       {!hideText && (
         <div className="flex flex-col justify-center">
-          <h1 className={`${titleSize} font-bold tracking-tight text-[#4B87C1] leading-none`}>
+          <h1 className={`${titleSize} font-bold tracking-tight ${isDarkMode ? 'text-[#67a7e6]' : 'text-[#4B87C1]'} leading-none transition-colors`}>
             Hamro Sansar Ltd
           </h1>
-          <p className={`${taglineSize} font-medium text-[#4B5320] mt-1 whitespace-nowrap opacity-85 italic font-sans`}>
+          <p className={`${taglineSize} font-medium ${isDarkMode ? 'text-zinc-400' : 'text-[#4B5320]'} mt-1 whitespace-nowrap opacity-85 italic font-sans transition-colors`}>
             Helping Hands For Better Future...
           </p>
         </div>

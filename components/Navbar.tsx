@@ -2,7 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -13,33 +18,72 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-xl py-4 border-b border-zinc-100 shadow-sm' : 'bg-transparent py-10'
+      isScrolled ? 'bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl py-4 border-b border-zinc-100 dark:border-zinc-800 shadow-sm' : 'bg-transparent py-10'
     }`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <div 
           className="group cursor-pointer transition-transform duration-500 hover:scale-[1.02]" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <Logo size={isScrolled ? 'sm' : 'md'} />
+          <Logo size={isScrolled ? 'sm' : 'md'} isDarkMode={isDarkMode} />
         </div>
         
-        <div className="hidden lg:flex items-center space-x-12 text-[10px] font-black uppercase tracking-[0.3em]">
-          <a href="#about" className="text-zinc-500 hover:text-[#4B87C1] transition-all">Supported Living</a>
-          <a href="#services" className="text-zinc-500 hover:text-[#4B87C1] transition-all">Support</a>
-          <a href="#stories" className="text-zinc-500 hover:text-[#4B87C1] transition-all">Success</a>
-          <a href="#contact" className="text-zinc-500 hover:text-[#4B87C1] transition-all">Contact</a>
-          <button className="px-8 py-3.5 bg-[#4B87C1] text-white rounded-2xl hover:bg-cyan-500 transition-all font-black transform hover:-translate-y-1 shadow-md shadow-blue-100">
+        <div className="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-[0.3em]">
+          <button onClick={() => scrollToSection('about')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Independence</button>
+          <button onClick={() => scrollToSection('services')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Support</button>
+          <button onClick={() => scrollToSection('stories')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Stories</button>
+          <button onClick={() => scrollToSection('contact')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Connect</button>
+          
+          {/* Dark Mode Switch */}
+          <button 
+            onClick={toggleDarkMode}
+            className="w-12 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 relative transition-colors duration-300 flex items-center px-1"
+            aria-label="Toggle Dark Mode"
+          >
+            <div className={`w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center ${
+              isDarkMode ? 'translate-x-6 bg-zinc-950' : 'translate-x-0 bg-white'
+            }`}>
+              {isDarkMode ? (
+                <svg className="w-3 h-3 text-[#00E5D1]" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+              ) : (
+                <svg className="w-3 h-3 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+              )}
+            </div>
+          </button>
+
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="px-8 py-3.5 bg-[#00E5D1] text-[#4B5320] rounded-2xl hover:scale-105 transition-all font-black shadow-lg shadow-cyan-100 dark:shadow-none"
+          >
             Referrals
           </button>
         </div>
 
-        <button className="lg:hidden text-[#4B87C1] p-3 bg-zinc-50 border border-zinc-100 rounded-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
-        </button>
+        <div className="flex lg:hidden items-center space-x-4">
+           <button 
+            onClick={toggleDarkMode}
+            className="p-3 bg-white dark:bg-zinc-900 border border-[#00E5D1]/30 rounded-2xl shadow-sm text-zinc-600 dark:text-zinc-400"
+          >
+            {isDarkMode ? '🌙' : '☀️'}
+          </button>
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="text-[#4B87C1] p-3 bg-white dark:bg-zinc-900 border border-[#00E5D1]/30 rounded-2xl shadow-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
   );
