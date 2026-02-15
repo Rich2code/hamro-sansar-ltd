@@ -9,6 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,28 +23,34 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
     }
   };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-      isScrolled ? 'bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl py-4 border-b border-zinc-100 dark:border-zinc-800 shadow-sm' : 'bg-transparent py-10'
+      isScrolled || isMobileMenuOpen 
+        ? 'bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl py-4 border-b border-zinc-100 dark:border-zinc-800 shadow-sm' 
+        : 'bg-transparent py-6 md:py-10'
     }`}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <div 
-          className="group cursor-pointer transition-transform duration-500 hover:scale-[1.02]" 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="group cursor-pointer transition-transform duration-500 hover:scale-[1.02] flex-shrink-0" 
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setIsMobileMenuOpen(false);
+          }}
         >
           <Logo size={isScrolled ? 'sm' : 'md'} isDarkMode={isDarkMode} />
         </div>
         
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-[0.3em]">
           <button onClick={() => scrollToSection('about')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Independence</button>
           <button onClick={() => scrollToSection('services')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Support</button>
           <button onClick={() => scrollToSection('stories')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Stories</button>
           <button onClick={() => scrollToSection('contact')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Connect</button>
           
-          {/* Dark Mode Switch */}
           <button 
             onClick={toggleDarkMode}
             className="w-12 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 relative transition-colors duration-300 flex items-center px-1"
@@ -68,20 +75,43 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
           </button>
         </div>
 
-        <div className="flex lg:hidden items-center space-x-4">
+        {/* Mobile Header Controls */}
+        <div className="flex lg:hidden items-center space-x-3">
            <button 
             onClick={toggleDarkMode}
-            className="p-3 bg-white dark:bg-zinc-900 border border-[#00E5D1]/30 rounded-2xl shadow-sm text-zinc-600 dark:text-zinc-400"
+            className="p-2.5 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl shadow-sm text-zinc-600 dark:text-zinc-400"
           >
             {isDarkMode ? '🌙' : '☀️'}
           </button>
           <button 
-            onClick={() => scrollToSection('contact')}
-            className="text-[#4B87C1] p-3 bg-white dark:bg-zinc-900 border border-[#00E5D1]/30 rounded-2xl shadow-sm"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-[#4B87C1] p-2.5 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl shadow-sm"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
+            {isMobileMenuOpen ? (
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${isMobileMenuOpen ? 'max-h-screen opacity-100 py-10 px-6 border-t border-zinc-100 dark:border-zinc-800' : 'max-h-0 opacity-0'}`}>
+        <div className="flex flex-col space-y-8 items-center text-center">
+          <button onClick={() => scrollToSection('about')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Independence</button>
+          <button onClick={() => scrollToSection('services')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Support</button>
+          <button onClick={() => scrollToSection('stories')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Stories</button>
+          <button onClick={() => scrollToSection('contact')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Connect</button>
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="w-full max-w-xs py-5 bg-[#00E5D1] text-[#4B5320] rounded-2xl transition-all font-black shadow-lg shadow-cyan-100 dark:shadow-none uppercase tracking-[0.2em] text-xs"
+          >
+            Make a Referral
           </button>
         </div>
       </div>

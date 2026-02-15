@@ -36,20 +36,20 @@ const SansarAI: React.FC<SansarAIProps> = ({ isDarkMode }) => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[60]">
       {isOpen ? (
-        <div className="w-80 md:w-96 h-[500px] bg-white dark:bg-zinc-900 rounded-3xl flex flex-col overflow-hidden shadow-[0_20px_60px_-15px_rgba(75,135,193,0.3)] border border-[#4B87C1]/10 dark:border-zinc-800 animate-in fade-in slide-in-from-bottom-10 duration-300">
+        <div className="w-[calc(100vw-2rem)] sm:w-80 md:w-96 h-[500px] max-h-[80vh] bg-white dark:bg-zinc-900 rounded-3xl flex flex-col overflow-hidden shadow-[0_20px_60px_-15px_rgba(75,135,193,0.3)] border border-[#4B87C1]/10 dark:border-zinc-800 animate-in fade-in slide-in-from-bottom-10 duration-300">
           <div className="p-4 bg-[#4B87C1] dark:bg-zinc-800 border-b border-[#4B87C1]/20 dark:border-zinc-700 flex justify-between items-center">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-white dark:bg-zinc-900 p-1">
+              <div className="w-8 h-8 rounded-lg bg-white dark:bg-zinc-900 p-1 flex-shrink-0">
                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=00E5D1" alt="AI Avatar" className="w-full h-full object-contain" />
               </div>
-              <div>
-                <span className="font-bold text-white block leading-none">Sansar AI</span>
-                <span className="text-[10px] text-[#00E5D1] uppercase tracking-widest font-black">Helping Hands</span>
+              <div className="overflow-hidden">
+                <span className="font-bold text-white block leading-none truncate">Sansar AI</span>
+                <span className="text-[10px] text-[#00E5D1] uppercase tracking-widest font-black block">Helping Hands</span>
               </div>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-white/70 hover:text-white transition-colors">
+            <button onClick={() => setIsOpen(false)} className="text-white/70 hover:text-white transition-colors p-1">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -103,9 +103,9 @@ const SansarAI: React.FC<SansarAIProps> = ({ isDarkMode }) => {
       ) : (
         <button 
           onClick={() => setIsOpen(true)}
-          className="w-16 h-16 bg-[#00E5D1] rounded-2xl flex items-center justify-center shadow-2xl shadow-cyan-500/30 dark:shadow-cyan-900/40 hover:scale-110 active:scale-95 transition-all text-[#4B5320]"
+          className="w-14 h-14 md:w-16 md:h-16 bg-[#00E5D1] rounded-2xl flex items-center justify-center shadow-2xl shadow-cyan-500/30 dark:shadow-cyan-900/40 hover:scale-110 active:scale-95 transition-all text-[#4B5320]"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
           </svg>
         </button>
