@@ -117,7 +117,7 @@ const App: React.FC = () => {
           <ServiceCard 
             title="Self‑Directed Lives" 
             description="Ensuring every individual is the primary decision‑maker in their own life, with meaningful choice over daily routines."
-            image="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&q=80&w=800"
+            image="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800"
           />
           <ServiceCard 
             title="Integrated Community" 
