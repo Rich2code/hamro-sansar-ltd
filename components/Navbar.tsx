@@ -64,10 +64,10 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-[0.3em]">
-          <button onClick={() => scrollToSection('about')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Independence</button>
-          <button onClick={() => scrollToSection('services')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Support</button>
-          <button onClick={() => scrollToSection('stories')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Stories</button>
-          <button onClick={() => scrollToSection('contact')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Connect</button>
+          <button onClick={() => scrollToSection('about')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">About Us</button>
+          <button onClick={() => scrollToSection('vision')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Vision</button>
+          <button onClick={() => scrollToSection('services')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Services</button>
+          <button onClick={() => scrollToSection('team')} className="text-zinc-500 dark:text-zinc-400 hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-all">Our Team</button>
           
           <DarkModeToggle />
 
@@ -79,7 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
           </button>
         </div>
 
-        {/* Mobile Header Controls - Toggle removed from here for mobile, moved to menu content */}
+        {/* Mobile Header Controls */}
         <div className="flex lg:hidden items-center space-x-4">
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -101,10 +101,10 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
       {/* Mobile Menu Overlay */}
       <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${isMobileMenuOpen ? 'max-h-screen opacity-100 py-10 px-6 border-t border-zinc-100 dark:border-zinc-800' : 'max-h-0 opacity-0'}`}>
         <div className="flex flex-col space-y-8 items-center text-center">
-          <button onClick={() => scrollToSection('about')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Independence</button>
-          <button onClick={() => scrollToSection('services')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Support</button>
-          <button onClick={() => scrollToSection('stories')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Stories</button>
-          <button onClick={() => scrollToSection('contact')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Connect</button>
+          <button onClick={() => scrollToSection('about')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">About Us</button>
+          <button onClick={() => scrollToSection('vision')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Vision</button>
+          <button onClick={() => scrollToSection('services')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Services</button>
+          <button onClick={() => scrollToSection('team')} className="text-sm font-black uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-400">Our Team</button>
           
           <div className="flex flex-col items-center space-y-2">
             <span className="text-[8px] font-black uppercase tracking-widest text-zinc-400">Theme</span>
@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
             onClick={() => scrollToSection('contact')}
             className="w-full max-w-xs py-5 bg-[#00E5D1] text-[#4B5320] rounded-2xl transition-all font-black shadow-lg shadow-cyan-100 dark:shadow-none uppercase tracking-[0.2em] text-xs"
           >
-            Make a Referral
+            Contact
           </button>
         </div>
       </div>

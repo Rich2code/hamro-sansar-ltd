@@ -24,14 +24,6 @@ const App: React.FC = () => {
     }
   };
 
-  const handleReferralClick = () => {
-    scrollToSection('contact');
-    setTimeout(() => {
-      const firstInput = document.querySelector('input');
-      if (firstInput) firstInput.focus();
-    }, 800);
-  };
-
   return (
     <div className="min-h-screen relative flex flex-col bg-[#fafafa] dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 transition-colors duration-500">
       <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
@@ -41,8 +33,8 @@ const App: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=2069" 
-            alt="Happy Young People" 
-            className="w-full h-full object-cover opacity-50 dark:opacity-20 md:opacity-60"
+            alt="Happy Inclusive Community" 
+            className="w-full h-full object-cover opacity-40 dark:opacity-20 md:opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-zinc-950 dark:via-zinc-950/80 dark:to-transparent"></div>
           
@@ -54,24 +46,24 @@ const App: React.FC = () => {
           <div className="max-w-4xl">
             <div className="inline-flex items-center space-x-3 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-[#00E5D1]/10 border border-[#00E5D1]/30 dark:border-[#00E5D1]/20 mb-6 md:mb-10 shadow-sm backdrop-blur-sm">
               <span className="w-2 h-2 md:w-2.5 md:h-2.5 bg-[#00E5D1] rounded-full animate-ping"></span>
-              <span className="text-[10px] md:text-[12px] font-black text-[#4B5320] dark:text-[#00E5D1] uppercase tracking-[0.2em]">Helping Hands For Better Future...</span>
+              <span className="text-[10px] md:text-[12px] font-black text-[#4B5320] dark:text-[#00E5D1] uppercase tracking-[0.2em]">Our World, Our Home</span>
             </div>
             <h1 className="text-5xl md:text-8xl font-serif font-bold leading-[1.1] mb-6 md:mb-8 tracking-tighter text-[#4B87C1] dark:text-[#67a7e6]">
-              Building <br />
-              <span className="text-[#00E5D1] italic">Your Own World.</span>
+              A Safe, <br />
+              <span className="text-[#00E5D1] italic">Inclusive Home.</span>
             </h1>
             <p className="text-lg md:text-2xl text-zinc-600 dark:text-zinc-400 mb-8 md:mb-12 max-w-2xl font-light leading-relaxed">
-              At <span className="text-[#4B87C1] dark:text-[#67a7e6] font-bold italic underline decoration-[#00E5D1]">Hamro Sansar</span>, we provide more than just a room. We provide the safety, skills, and support to help young people thrive independently.
+              Providing specialist supported living built on <span className="text-[#4B87C1] dark:text-[#67a7e6] font-bold italic underline decoration-[#00E5D1]">dignity, choice, and compassion</span> for adults with learning and physical disabilities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={() => scrollToSection('services')}
                 className="px-6 md:px-8 py-4 bg-[#00E5D1] text-[#4B5320] font-black rounded-2xl hover:scale-105 hover:shadow-[0_10px_40px_rgba(0,229,209,0.3)] transition-all duration-500 text-[10px] uppercase tracking-[0.2em]"
               >
-                Discover Our Homes
+                Our Services
               </button>
               <button 
-                onClick={handleReferralClick}
+                onClick={() => scrollToSection('contact')}
                 className="px-6 md:px-8 py-4 border-2 border-[#4B87C1] dark:border-[#67a7e6] bg-white dark:bg-transparent text-[#4B87C1] dark:text-[#67a7e6] font-black rounded-2xl hover:bg-[#4B87C1]/5 transition-all text-[10px] uppercase tracking-[0.2em]"
               >
                 Make a Referral
@@ -85,93 +77,172 @@ const App: React.FC = () => {
       <section id="about" className="py-20 md:py-32 bg-zinc-50 dark:bg-zinc-900/50 border-y border-zinc-200/50 dark:border-zinc-800/50 transition-colors">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
-            <div className="relative group">
+            <div className="relative group order-2 lg:order-1">
               <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1471" 
-                alt="Community and Support" 
+                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=1471" 
+                alt="Community Interaction" 
                 className="relative rounded-[2rem] md:rounded-[3rem] object-cover w-full h-[400px] md:h-[600px] shadow-2xl transition-all duration-700 group-hover:scale-[1.01]"
               />
               <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 bg-[#4B87C1] dark:bg-[#67a7e6] p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-xl text-white hidden sm:block">
                  <p className="text-[10px] md:text-sm font-black uppercase tracking-widest mb-1 md:mb-2 italic opacity-80">Hamro Sansar</p>
-                 <h4 className="text-xl md:text-3xl font-serif font-bold leading-none">A Safe World</h4>
+                 <h4 className="text-xl md:text-3xl font-serif font-bold leading-none">Our World</h4>
               </div>
             </div>
-            <div>
-              <span className="text-[#00E5D1] font-black uppercase tracking-[0.3em] text-[11px] mb-4 md:mb-6 block">Our Philosophy</span>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 font-serif leading-tight text-zinc-900 dark:text-white">Empowering <br/><span className="italic text-[#4B87C1] dark:text-[#67a7e6]">Young Ambition.</span></h2>
-              <p className="text-zinc-600 dark:text-zinc-400 text-lg md:text-xl mb-8 md:mb-10 leading-relaxed font-light">
-                Transitioning to adulthood is a journey. Our semi-independent homes are designed for 16-18 year olds who are ready to take the next step towards freedom while keeping <span className="text-[#00E5D1] font-bold">Helping Hands</span> close by.
+            <div className="order-1 lg:order-2">
+              <span className="text-[#00E5D1] font-black uppercase tracking-[0.3em] text-[11px] mb-4 md:mb-6 block">Who We Are</span>
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 font-serif leading-tight text-zinc-900 dark:text-white">Supported Living, <br/><span className="italic text-[#4B87C1] dark:text-[#67a7e6]">Co-Created.</span></h2>
+              <p className="text-zinc-600 dark:text-zinc-400 text-lg md:text-xl mb-6 leading-relaxed font-light">
+                <strong>Hamro Sansar</strong> means <em>“Our World”</em> in Nepali. It is the foundation of our belief that supported living should feel like a true home where people are respected and empowered.
+              </p>
+              <p className="text-zinc-500 dark:text-zinc-400 mb-8 leading-relaxed">
+                We specialise in supporting adults with learning disabilities, autism, and complex care needs. We work collaboratively to co‑create personalised support that reflects each individual’s strengths, aspirations, and culture.
               </p>
               <div className="space-y-4 md:space-y-6 mb-10 md:mb-12">
-                <CheckItem text="Personalized 1-to-1 key work support" />
-                <CheckItem text="Vibrant, domestic home environments" />
-                <CheckItem text="Comprehensive life-skills curriculum" />
+                <CheckItem text="Adults aged 18–65 support" />
+                <CheckItem text="Dignity and Genuine Control" />
+                <CheckItem text="24‑hour Skilled Staff Support" />
               </div>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="w-full sm:w-auto px-8 py-4 bg-[#4B87C1] dark:bg-[#67a7e6] text-white font-black rounded-2xl hover:scale-105 transition-all text-[10px] uppercase tracking-[0.2em] shadow-lg shadow-blue-200 dark:shadow-none"
-              >
-                Learn More About Us
-              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 md:py-32 bg-white dark:bg-zinc-950">
+      {/* Vision Section */}
+      <section id="vision" className="py-20 md:py-32 bg-white dark:bg-zinc-950">
         <div className="container mx-auto px-4 md:px-6 text-center mb-16 md:mb-24">
-          <span className="text-[#00E5D1] font-black uppercase tracking-[0.3em] text-[11px] mb-4 md:mb-6 block">What We Offer</span>
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#4B87C1] dark:text-[#67a7e6]">Our Pillars of Support</h2>
+          <span className="text-[#00E5D1] font-black uppercase tracking-[0.3em] text-[11px] mb-4 md:mb-6 block">Our Vision</span>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#4B87C1] dark:text-[#67a7e6]">Empowering Future Lives</h2>
         </div>
-        <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-3 gap-8 md:gap-12">
           <ServiceCard 
-            title="Safe Spaces" 
-            description="Warm, beautifully furnished homes in safe UK neighborhoods that foster a sense of belonging."
-            image="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"
-            onAction={() => scrollToSection('contact')}
+            title="Self‑Directed Lives" 
+            description="Ensuring every individual is the primary decision‑maker in their own life, with meaningful choice over daily routines."
+            image="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&q=80&w=800"
           />
           <ServiceCard 
-            title="Future Skills" 
-            description="Hands-on learning from finance and cooking to career coaching and further education prep."
-            image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800"
-            onAction={() => scrollToSection('contact')}
+            title="Integrated Community" 
+            description="Breaking down barriers to inclusion, supporting people to build genuine connections and a sense of belonging."
+            image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800"
           />
           <ServiceCard 
-            title="Mental Wellbeing" 
-            description="Nurturing emotional health through dedicated mentorship and therapeutic-informed care."
-            image="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?auto=format&fit=crop&q=80&w=800"
-            onAction={() => scrollToSection('contact')}
+            title="Expert Support" 
+            description="Skilled, consistent, and compassionate care including Positive Behaviour Support (PBS) and specialist mentorship."
+            image="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&q=80&w=800"
           />
         </div>
       </section>
 
-      {/* Success Stories Section */}
-      <section id="stories" className="py-20 md:py-32 bg-[#4B87C1]/5 dark:bg-zinc-900/30 relative overflow-hidden">
+      {/* Specialist Services Section */}
+      <section id="services" className="py-20 md:py-32 bg-[#4B87C1]/5 dark:bg-zinc-900/30">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8 md:gap-10 text-center md:text-left">
-            <div className="max-w-2xl">
-              <span className="text-[#00E5D1] font-black uppercase tracking-[0.3em] text-[11px] mb-4 md:mb-6 block">Success Stories</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-zinc-900 dark:text-white">Realizing Dreams</h2>
-            </div>
-            <p className="text-[#4B5320] dark:text-[#00E5D1] max-w-sm text-lg italic font-medium mx-auto md:mx-0">
-              "Every young person deserves a world of opportunity."
+          <div className="text-center mb-16 md:mb-20">
+            <span className="text-[#00E5D1] font-black uppercase tracking-[0.3em] text-[11px] mb-6 block">What We Deliver</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#4B87C1] dark:text-[#67a7e6]">Specialist Supported Living</h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-lg mt-6 max-w-2xl mx-auto font-light leading-relaxed">
+              We provide tailored support for adults with learning disabilities, autism, physical disabilities, and complex needs.
             </p>
           </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+            <SpecialistItem 
+              icon="🕒" 
+              title="24-Hour Support" 
+              text="Round-the-clock staffing providing safety, stability, and expert care in domestic home environments." 
+            />
+            <SpecialistItem 
+              icon="👥" 
+              title="Personalized Care" 
+              text="1:1 and 2:1 specialist support tailored to individual aspirations and communication needs." 
+            />
+            <SpecialistItem 
+              icon="🧩" 
+              title="PBS Model" 
+              text="Evidence-based Positive Behaviour Support focused on improving quality of life and outcomes." 
+            />
+            <SpecialistItem 
+              icon="🏥" 
+              title="Complex Needs" 
+              text="Specialist expertise in complex physical care, mobility support, and sensory-friendly living." 
+            />
+          </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
-            <StoryCard 
-              name="Sarah's Journey"
-              result="Future Nurse"
-              story="Sarah joined us needing stability. With our support, she finished college and is now starting her nursing degree."
-              image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400"
+          <div className="grid md:grid-cols-2 gap-8">
+            <img 
+              src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=1200" 
+              className="rounded-[2.5rem] h-80 w-full object-cover shadow-xl" 
+              alt="Care Specialist" 
             />
-            <StoryCard 
-              name="James' Growth"
-              result="Software Apprentice"
-              story="James discovered his passion for tech during our life skills workshops. He's now thriving in a top-tier apprenticeship."
-              image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400"
+            <img 
+              src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1200" 
+              className="rounded-[2.5rem] h-80 w-full object-cover shadow-xl" 
+              alt="Community Living" 
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section id="values" className="py-20 md:py-32 bg-white dark:bg-zinc-950">
+        <div className="container mx-auto px-4 md:px-6 mb-16">
+          <span className="text-[#00E5D1] font-black uppercase tracking-[0.3em] text-[11px] mb-4 md:mb-6 block">Our Heart</span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-zinc-900 dark:text-white">Core Values</h2>
+        </div>
+        <div className="container mx-auto px-4 md:px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <ValueCard icon="🏡" title="Community" text="Fostering a shared world where residents and families feel connected." />
+          <ValueCard icon="✨" title="Independence" text="The right to make choices about life, regardless of the level of need." />
+          <ValueCard icon="💙" title="Compassion" text="Empathy and respect in every interaction through trauma-informed care." />
+          <ValueCard icon="📜" title="Compliance & Trust" text="Highest standards of safety, governance, and accountability." />
+          <ValueCard icon="🌍" title="Cultural Richness" text="Celebrating diversity and recognising the importance of cultural identity." />
+          <ValueCard icon="🌟" title="Happiness" text="Success measured by the dignity and quality of life for those we support." />
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section id="team" className="py-20 md:py-32 bg-zinc-50 dark:bg-zinc-900/50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16 md:mb-24">
+            <span className="text-[#00E5D1] font-black uppercase tracking-[0.3em] text-[11px] mb-6 block">Our Expertise</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-zinc-900 dark:text-white">Meet the Team</h2>
+          </div>
+          
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 bg-white dark:bg-zinc-900 rounded-[3rem] p-8 md:p-12 border border-zinc-100 dark:border-zinc-800 flex flex-col md:flex-row gap-10 shadow-sm">
+              <div className="w-48 h-48 flex-shrink-0 rounded-full overflow-hidden border-4 border-[#00E5D1]/20 mx-auto md:mx-0">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover" alt="Nicola" />
+              </div>
+              <div>
+                <span className="text-[#00E5D1] text-[10px] font-black uppercase tracking-widest mb-2 block">Registered Manager</span>
+                <h3 className="text-3xl font-serif font-bold text-[#4B87C1] dark:text-[#67a7e6] mb-4">Nicola</h3>
+                <p className="text-zinc-500 dark:text-zinc-400 mb-4 leading-relaxed font-light">
+                  Nicola is an experienced Registered Manager with over 10 years in health and social care. She brings values‑led leadership with a clear focus on safeguarding and quality.
+                </p>
+                <div className="grid grid-cols-2 gap-4 text-xs font-bold text-zinc-400">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-1 h-1 bg-[#00E5D1] rounded-full"></span>
+                    <span>CQC Registered</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <span className="w-1 h-1 bg-[#00E5D1] rounded-full"></span>
+                    <span>PBS Specialist</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-100 dark:border-zinc-800">
+                <h4 className="font-serif font-bold text-lg mb-2 text-[#4B87C1] dark:text-[#67a7e6]">Leadership Team</h4>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">Strategic oversight and transparent governance.</p>
+              </div>
+              <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-100 dark:border-zinc-800">
+                <h4 className="font-serif font-bold text-lg mb-2 text-[#4B87C1] dark:text-[#67a7e6]">Support Workers</h4>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">The heart of our world, enabling independence.</p>
+              </div>
+              <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-100 dark:border-zinc-800">
+                <h4 className="font-serif font-bold text-lg mb-2 text-[#4B87C1] dark:text-[#67a7e6]">Specialist Partners</h4>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">Behavioural specialists and therapists.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -183,32 +254,32 @@ const App: React.FC = () => {
             <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-[#4B87C1]/10 rounded-full blur-[60px] md:blur-[100px] -mr-32 md:-mr-48 -mt-32 md:-mt-48"></div>
             <div className="grid lg:grid-cols-2 gap-16 md:gap-24 relative z-10">
               <div>
-                <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 md:mb-10 text-[#4B87C1] dark:text-[#67a7e6] leading-tight text-center md:text-left">Let's Talk.</h2>
+                <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 md:mb-10 text-[#4B87C1] dark:text-[#67a7e6] leading-tight text-center md:text-left">Let's Connect.</h2>
                 <p className="text-zinc-500 dark:text-zinc-400 mb-10 md:mb-16 text-lg md:text-xl font-light text-center md:text-left">
-                  We are here to answer questions from local authorities, social workers, and families.
+                  We work transparently with families and commissioners to provide the best outcomes.
                 </p>
                 <div className="space-y-8 md:space-y-12">
-                  <div className="cursor-pointer group" onClick={() => window.open('https://maps.google.com/?q=123+Heritage+Lane+London+SW1A+1AA', '_blank')}>
-                    <ContactItem icon="🏠" label="Location" value="123 Heritage Lane, SW1A 1AA" color="#4B87C1" />
+                  <div className="cursor-pointer group" onClick={() => window.location.href = 'mailto:info@hamrosansar.co.uk'}>
+                    <ContactItem icon="✉️" label="Email Us" value="info@hamrosansar.co.uk" color="#00E5D1" />
                   </div>
-                  <div className="cursor-pointer group" onClick={() => window.location.href = 'mailto:hello@hamrosansar.co.uk'}>
-                    <ContactItem icon="✉️" label="Email Us" value="hello@hamrosansar.co.uk" color="#00E5D1" />
+                  <div className="group">
+                    <ContactItem icon="📞" label="Phone" value="Contact info coming soon" color="#4B87C1" />
                   </div>
                 </div>
               </div>
               <div className="bg-zinc-50 dark:bg-zinc-950/50 p-6 md:p-14 rounded-[2rem] md:rounded-[3rem] border border-[#00E5D1]/20">
                 <form className="space-y-6 md:space-y-8" onSubmit={e => {
                   e.preventDefault();
-                  alert('Thank you for reaching out! We will be in touch shortly.');
+                  alert('Thank you! Our referral team will be in touch shortly.');
                   (e.target as HTMLFormElement).reset();
                 }}>
                   <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                     <input required type="text" placeholder="Name" className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 focus:ring-2 ring-[#00E5D1] outline-none text-zinc-800 dark:text-zinc-100 placeholder:text-zinc-400" />
                     <input required type="email" placeholder="Email" className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 focus:ring-2 ring-[#00E5D1] outline-none text-zinc-800 dark:text-zinc-100 placeholder:text-zinc-400" />
                   </div>
-                  <textarea required rows={4} placeholder="How can we help?" className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 focus:ring-2 ring-[#00E5D1] outline-none resize-none text-zinc-800 dark:text-zinc-100 placeholder:text-zinc-400"></textarea>
+                  <textarea required rows={4} placeholder="How can we help? (Referral or Enquiry)" className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 focus:ring-2 ring-[#00E5D1] outline-none resize-none text-zinc-800 dark:text-zinc-100 placeholder:text-zinc-400"></textarea>
                   <button type="submit" className="w-full py-4 md:py-5 bg-[#4B87C1] dark:bg-[#67a7e6] text-white font-black rounded-xl md:rounded-2xl hover:bg-[#00E5D1] hover:text-[#4B5320] transition-all uppercase tracking-[0.2em] text-[10px] md:text-xs shadow-xl shadow-blue-100 dark:shadow-none">
-                    Connect With Us
+                    Send Message
                   </button>
                 </form>
               </div>
@@ -224,13 +295,13 @@ const App: React.FC = () => {
               <Logo size="lg" isDarkMode={isDarkMode} />
            </div>
            <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-12 md:mb-16 text-[8px] md:text-[10px] font-black text-zinc-400 uppercase tracking-[0.3em]">
-              <button onClick={() => scrollToSection('about')} className="hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-colors uppercase">Our Goal</button>
-              <button onClick={() => scrollToSection('services')} className="hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-colors uppercase">Support</button>
-              <button onClick={() => scrollToSection('stories')} className="hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-colors uppercase">Testimonials</button>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-colors uppercase">Inquiry</button>
+              <button onClick={() => scrollToSection('about')} className="hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-colors uppercase">About</button>
+              <button onClick={() => scrollToSection('vision')} className="hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-colors uppercase">Vision</button>
+              <button onClick={() => scrollToSection('services')} className="hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-colors uppercase">Services</button>
+              <button onClick={() => scrollToSection('team')} className="hover:text-[#4B87C1] dark:hover:text-[#67a7e6] transition-colors uppercase">Our Team</button>
            </div>
            <div className="text-zinc-400 text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-medium text-center max-w-xs md:max-w-none">
-             &copy; {new Date().getFullYear()} Hamro Sansar Ltd. Registered Supported Accommodation Provider.
+             &copy; {new Date().getFullYear()} Hamro Sansar Ltd | Our World, Our Home.
            </div>
         </div>
       </footer>
@@ -240,30 +311,29 @@ const App: React.FC = () => {
   );
 };
 
-const ServiceCard: React.FC<{ title: string; description: string; image: string; onAction?: () => void }> = ({ title, description, image, onAction }) => (
+const ServiceCard: React.FC<{ title: string; description: string; image: string }> = ({ title, description, image }) => (
   <div className="group bg-white dark:bg-zinc-900 rounded-[2rem] md:rounded-[3rem] border border-zinc-100 dark:border-zinc-800 p-5 md:p-6 hover:shadow-2xl transition-all duration-700">
     <div className="h-48 md:h-64 overflow-hidden rounded-[1.5rem] md:rounded-[2.5rem] mb-6 md:mb-10">
       <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
     </div>
     <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#4B87C1] dark:text-[#67a7e6] mb-4 md:mb-6">{title}</h3>
     <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 md:mb-8">{description}</p>
-    <button 
-      onClick={onAction}
-      className="text-[#00E5D1] font-black uppercase tracking-widest text-[9px] md:text-[10px] group-hover:translate-x-2 transition-transform flex items-center"
-    >
-      Details <span className="ml-2">&rarr;</span>
-    </button>
   </div>
 );
 
-const StoryCard: React.FC<{ name: string; result: string; story: string; image: string }> = ({ name, result, story, image }) => (
-  <div className="bg-white dark:bg-zinc-900 rounded-[2.5rem] md:rounded-[3.5rem] p-6 md:p-10 border border-zinc-100 dark:border-zinc-800 flex flex-col sm:flex-row gap-6 md:gap-10 items-center shadow-sm hover:shadow-md transition-shadow">
-    <img src={image} alt={name} className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-lg border-4 border-[#00E5D1]/20 dark:border-[#00E5D1]/10" />
-    <div className="text-center sm:text-left">
-      <span className="text-[#00E5D1] text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-2 block">{result}</span>
-      <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#4B87C1] dark:text-[#67a7e6] mb-3 md:mb-4">{name}</h3>
-      <p className="text-zinc-500 dark:text-zinc-400 font-light text-sm md:text-base leading-relaxed">{story}</p>
-    </div>
+const SpecialistItem: React.FC<{ icon: string; title: string; text: string }> = ({ icon, title, text }) => (
+  <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-lg transition-all border-b-4 border-b-[#00E5D1]">
+    <div className="text-4xl mb-6">{icon}</div>
+    <h4 className="text-xl font-serif font-bold text-[#4B87C1] dark:text-[#67a7e6] mb-4">{title}</h4>
+    <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">{text}</p>
+  </div>
+);
+
+const ValueCard: React.FC<{ icon: string; title: string; text: string }> = ({ icon, title, text }) => (
+  <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 hover:border-[#00E5D1]/50 transition-colors group">
+    <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">{icon}</div>
+    <h4 className="text-xl font-serif font-bold text-[#4B87C1] dark:text-[#67a7e6] mb-3">{title}</h4>
+    <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">{text}</p>
   </div>
 );
 
